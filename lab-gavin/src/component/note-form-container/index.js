@@ -1,28 +1,31 @@
-import React from 'react'
+import React from 'react';
 
-class ExpenseForm extends React.Component {
+class NoteFormContainer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       title: '',
-      price: 0,
-    }
+      content: '',
+      editing: false,
+      completed: false,
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
       // price: someVal,
       // title: someOtherVal
-    })
+    });
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    this.props.handleExpenseCreate(this.state)
+    e.preventDefault();
+    this.props.handleNoteCreate(this.state);
   }
 
   render() {
@@ -39,16 +42,16 @@ class ExpenseForm extends React.Component {
           onChange={this.handleChange}/>
 
         <input
-          type="number"
-          name="price"
-          placeholder="price"
-          value={this.state.price}
+          type="text"
+          name="content"
+          placeholder="New Note"
+          value={this.state.content}
           onChange={this.handleChange}/>
 
         <button type="submit">Add</button>
       </form>
-    )
+    );
   }
 }
 
-export default ExpenseForm
+export default NoteFormContainer;
