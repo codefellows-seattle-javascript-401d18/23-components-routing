@@ -5,7 +5,7 @@ class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: uuid.v1(),
+      id: uuid(),
       editing: false,
       completed: false,
       content: 'woooooo it is a note',
