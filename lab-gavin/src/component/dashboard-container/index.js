@@ -20,12 +20,18 @@ class DashboardContainer extends React.Component {
       notes: [...prevState.notes, note],
     }));
   }
-  noteDelete(title){
-    console.log(this.props.app.state.notes,'heloooooo');
-    let z = this.props.app.state.notes;
-    z = z.filter(note => note.title !== note.title);
-    this.props.app.setState({ notes: z });
+  noteDelete(note){
+    this.props.app.setState(prevState => ({
+      notes: prevState.notes.filter((item) => {
+        return item.id !== note.id;
+      }),
+    }));
   }
+  // let z = this.props.app.state.notes;
+  // let newNotes = z.filter(note => note.title !== note.title);
+  // console.log(newNotes, 'NEWNOTES');
+  // this.props.app.setState({ notes: newNotes });
+  // console.log(this.props.app.state.notes,'AFTERSETSTATE');
 
   render() {
     return (

@@ -4,15 +4,15 @@ class ListContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      noteList: this.props.notes.map(item => <li key={item.id}>{item.title}: {item.content} <button onClick={this.props.handleNoteDelete}>Delete</button></li>),
+      noteList: this.props.notes.map(item => <li key={item.id}>{item.title}: {item.content} <button onClick={() => this.props.handleNoteDelete(item)}>Delete</button></li>),
     };
     // this.deleteNote = this.deleteNote.bind(this);
 
   }
 
-  // handleDelete(e){
-  //   // e.preventDefault();
-  //   this.deleteNote(this.title);
+  // handleClick(e){
+  //   e.preventDefault();
+  //   this.props.handleNoteDelete(e);
   // }
 
   // deleteNote(note){
