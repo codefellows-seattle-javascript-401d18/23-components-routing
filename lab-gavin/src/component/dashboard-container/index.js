@@ -28,11 +28,7 @@ class DashboardContainer extends React.Component {
       }),
     }));
   }
-  // let z = this.props.app.state.notes;
-  // let newNotes = z.filter(note => note.title !== note.title);
-  // console.log(newNotes, 'NEWNOTES');
-  // this.props.app.setState({ notes: newNotes });
-  // console.log(this.props.app.state.notes,'AFTERSETSTATE');
+
 
   render() {
     return (
