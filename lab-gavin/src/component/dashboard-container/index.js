@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import NoteFormContainer from '../note-form-container';
 import ListContainer from '../list-container';
+import './_dashboard-container.scss';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -20,17 +21,19 @@ class DashboardContainer extends React.Component {
       notes: [...prevState.notes, note],
     }));
   }
-  noteDelete(title){
-    console.log(this.props.app.state.notes,'heloooooo');
-    let z = this.props.app.state.notes;
-    z = z.filter(note => note.title !== note.title);
-    this.props.app.setState({ notes: z });
+  noteDelete(note){
+    this.props.app.setState(prevState => ({
+      notes: prevState.notes.filter((item) => {
+        return item.id !== note.id;
+      }),
+    }));
   }
+
 
   render() {
     return (
       <div className="dashboard-container">
-        <h2>We are in the dashboard</h2>
+        <h2>Add a new note!</h2>
         <NoteFormContainer
         handleNoteCreate={this.noteCreate}/>
         <ListContainer

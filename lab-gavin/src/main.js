@@ -14,7 +14,7 @@ class App extends React.Component {
       notes: [],
     };
     this.getApp = this.getApp.bind(this);
-    
+
   }
 
   componentDidUpdate() {
@@ -37,6 +37,8 @@ class App extends React.Component {
             <ul>
               <li><a href="/">home</a></li>
               <li><a href="/about">about</a></li>
+              <li><a href="/pastNotes">Past Notes</a></li>
+              <li><a href="/newNote">New Note</a></li>
             </ul>
           </nav>
         </header>
