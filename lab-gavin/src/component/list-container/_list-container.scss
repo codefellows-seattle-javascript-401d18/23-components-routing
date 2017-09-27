@@ -16,7 +16,11 @@ body {
     width: 100%;
     text-align: center;
     text-shadow: 2px 1px;
-    font-size: 5vw;
+    font-size: 1vw;
+  }
+
+  li h2 {
+    color: red;
   }
 
   pre {
