@@ -5,7 +5,13 @@ class ListContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      noteList: this.props.notes.map(item => <li key={item.id}><h2>{item.title}:</h2> {item.content} <button onClick={() => this.props.handleNoteDelete(item)}>Delete</button></li>),
+      noteList:
+      this.props.notes.map(item =>
+        <li key={item.id}>
+        <h2>{item.title}:</h2>{item.content}
+        <button onClick={() => this.props.handleNoteDelete(item)}>Delete</button>
+        <button onDoubleClick={() => this.props.handleNoteUpdate(item)}>Update</button></li>
+      ),
     };
 
 
