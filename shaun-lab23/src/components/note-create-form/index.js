@@ -5,7 +5,9 @@ class CreateForm extends React.Component {
     super(props)
     this.state = {
       title: '',
-      content: 0,
+      content: '',
+      editing: false,
+      completed: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -45,10 +47,10 @@ class CreateForm extends React.Component {
           value={this.state.content}
           onChange={this.handleChange}/>
 
-        <button type="submit">Add</button>
+        <button type="submit">Add Note</button>
       </form>
     )
   }
 }
 
-export default NoteForm
+export default CreateForm

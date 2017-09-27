@@ -1,5 +1,7 @@
 import React from 'react'
 import uuid from 'uuid/v4'
+
+
 import NoteCreateForm from '../note-create-form'
 import NoteList from '../note-list'
 
@@ -7,7 +9,7 @@ class DashboardContainer extends React.Component {
   constructor(props) {
     super(props)
     this.noteCreate = this.noteCreate.bind(this)
-    this.deleteCreate = this.deleteCreate.bint(this)
+    // this.deleteCreate = this.deleteCreate.bind(this)
   }
 
   componentDidUpdate() {
