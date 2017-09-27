@@ -1,4 +1,5 @@
 import React from 'react';
+import './_note-form-container.scss';
 
 class NoteFormContainer extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class NoteFormContainer extends React.Component {
   render() {
     return (
       <form
-        className="expense-form"
+        className="note-form"
         onSubmit={this.handleSubmit}>
 
         <input

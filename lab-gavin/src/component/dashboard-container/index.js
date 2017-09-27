@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import NoteFormContainer from '../note-form-container';
 import ListContainer from '../list-container';
+import './_dashboard-container.scss';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class DashboardContainer extends React.Component {
   render() {
     return (
       <div className="dashboard-container">
-        <h2>We are in the dashboard</h2>
+        <h2>Add a new note!</h2>
         <NoteFormContainer
         handleNoteCreate={this.noteCreate}/>
         <ListContainer
