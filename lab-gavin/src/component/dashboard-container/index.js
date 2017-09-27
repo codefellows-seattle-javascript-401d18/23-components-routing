@@ -7,6 +7,7 @@ class DashboardContainer extends React.Component {
   constructor(props) {
     super(props);
     this.noteCreate = this.noteCreate.bind(this);
+    this.noteDelete = this.noteDelete.bind(this);
   }
 
   componentDidUpdate() {
@@ -19,13 +20,23 @@ class DashboardContainer extends React.Component {
       notes: [...prevState.notes, note],
     }));
   }
+  noteDelete(title){
+    console.log(this.props.app.state.notes,'heloooooo');
+    let z = this.props.app.state.notes;
+    z = z.filter(note => note.title !== note.title);
+    this.props.app.setState({ notes: z });
+  }
 
   render() {
     return (
       <div className="dashboard-container">
         <h2>We are in the dashboard</h2>
-        <NoteFormContainer handleNoteCreate={this.noteCreate}/>
-        <ListContainer notes={this.props.app.state.notes}/>
+        <NoteFormContainer
+        handleNoteCreate={this.noteCreate}/>
+        <ListContainer
+        notes={this.props.app.state.notes}
+        handleNoteDelete={this.noteDelete}
+        />
       </div>
     );
   }
