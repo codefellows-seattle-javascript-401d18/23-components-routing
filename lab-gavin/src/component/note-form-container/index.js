@@ -41,8 +41,9 @@ class NoteFormContainer extends React.Component {
           placeholder="title"
           value={this.state.title}
           onChange={this.handleChange}/>
+          <br/>
 
-        <input
+        <textarea
           type="text"
           name="content"
           placeholder="New Note"

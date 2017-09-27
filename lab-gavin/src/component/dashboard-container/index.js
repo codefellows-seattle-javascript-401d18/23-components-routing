@@ -9,6 +9,7 @@ class DashboardContainer extends React.Component {
     super(props);
     this.noteCreate = this.noteCreate.bind(this);
     this.noteDelete = this.noteDelete.bind(this);
+    this.noteUpdate = this.noteUpdate.bind(this);
   }
 
   componentDidUpdate() {
@@ -29,6 +30,14 @@ class DashboardContainer extends React.Component {
     }));
   }
 
+  noteUpdate(note) {
+    this.props.app.setState(prevState => ({
+      notes: prevState.notes.map((item) => {
+        return item.id === note.id ? note : item;
+      }),
+    }));
+  }
+
 
   render() {
     return (
@@ -39,6 +48,7 @@ class DashboardContainer extends React.Component {
         <ListContainer
         notes={this.props.app.state.notes}
         handleNoteDelete={this.noteDelete}
+        handleNoteUpdate={this.noteUpdate}
         />
       </div>
     );
