@@ -1,37 +1,47 @@
-import React from 'react'
-import uuid from 'uuid/v4'
+import React from 'react';
+import uuid from 'uuid/v1';
 
-
-import NoteCreateForm from '../note-create-form'
-import NoteList from '../note-list'
+import NoteForm from '../note-create-form';
+import NoteList from '../note-list';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
-    super(props)
-    this.noteCreate = this.noteCreate.bind(this)
-    // this.deleteCreate = this.deleteCreate.bind(this)
-  }
+    super(props);
 
-  componentDidUpdate() {
-    console.log('__APP_STATE_FROM_DASHBOARD__', this.props.app.state)
+    this.noteCreate = this.noteCreate.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   noteCreate(note) {
-    expense.id = uuid()
-    this.props.app.setState(prevState => ({
-      note: [...prevState.expenses, note]
-    }))
+    note.id = uuid();
+    this.props.getAppState.setState(state => ({
+      notes: [...state.notes, note]
+    }));
   }
-  // deleteCreate(note)
+
+  deleteNote(note) {
+    this.props.getAppState.setState(prevState => ({
+      notes: prevState.notes.filter((noteItem) => {
+        return noteItem.id !== note.id;
+      })
+    }));
+  }
 
   render() {
+    console.log('GETAPPSTATE?:', this.props.getAppState);
     return (
-      <div className="dashboard-container">
-        <h2>Notes and Fun lists</h2>
-        <NoteCreateForm handleExpenseCreate={this.noteCreate}/>
-        <NoteList expenses={this.props.app.state.note}/>
+      <div className='dashboard-container'>
+        <div>
+          <NoteForm handleNoteCreate={this.noteCreate} />
+        </div>
+        <div>
+          <NoteList notes={this.props.getAppState.state.notes}
+          deleteNote={this.deleteNote}
+          />
+        </div>
       </div>
-    )
+    );
   }
 }
-export default DashboardContainer
+
+export default DashboardContainer;

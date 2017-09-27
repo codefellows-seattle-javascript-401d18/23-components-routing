@@ -1,56 +1,54 @@
-import React from 'react'
+import React from 'react';
 
-class CreateForm extends React.Component {
+class NoteCreateForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       title: '',
       content: '',
       editing: false,
-      completed: false,
-    }
+      completed: false
+    };
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
-      // price: someVal,
-      // title: someOtherVal
-    })
+    });
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    this.props.handleNoteCreate(this.state)
+    e.preventDefault();
+    this.props.handleNoteCreate(this.state);
   }
 
   render() {
     return (
-      <form
-        className="note-form"
-        onSubmit={this.handleSubmit}>
-
+      <form onSubmit={this.handleSubmit}>
         <input
-          type="text"
-          name="title"
-          placeholder="title"
+          name='title'
+          type='text'
+          placeholder='Title'
           value={this.state.title}
-          onChange={this.handleChange}/>
+          onChange={this.handleChange}
+          />
 
         <input
-          type="text"
-          name="content"
-          placeholder="content"
+          name='content'
+          type='text'
+          placeholder='Content'
           value={this.state.content}
-          onChange={this.handleChange}/>
+          onChange={this.handleChange}
+          />
 
-        <button type="submit">Add Note</button>
+        <button type='submit'>Add Note</button>
       </form>
-    )
+    );
   }
 }
 
-export default CreateForm
+export default NoteCreateForm;
