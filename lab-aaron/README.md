@@ -1,4 +1,4 @@
-# Lab 23 Learning the Front End Part 3
+# Lab 24 Learning the Front End Part 3
 
 
 ## Using the App
