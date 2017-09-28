@@ -1,23 +1,23 @@
-import './styles/main.scss'
+import './styles/main.scss';
 
-import React from 'react'
-import ReactDom from 'react-dom'
-import {BrowserRouter, Route} from 'react-router-dom'
-import AboutContainer from './component/about-container'
-import DashboardContainer from './component/dashboard-container'
+import React from 'react';
+import ReactDom from 'react-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
+import AboutContainer from './component/about-container';
+import DashboardContainer from './component/dashboard-container';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       expenses: [],
       budget: 400,
     }
-    this.getApp = this.getApp.bind(this)
+    this.getApp = this.getApp.bind(this);
   }
 
   componentDidUpdate() {
-    console.log('__STATE__', this.state)
+    console.log('__STATE__', this.state);
   }
 
   getApp() {
@@ -47,8 +47,8 @@ class App extends React.Component {
           </BrowserRouter>
         </main>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
-ReactDom.render(<App />, document.getElementById('root'))
+ReactDom.render(<App />, document.getElementById('root'));
