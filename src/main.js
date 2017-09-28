@@ -1,71 +1,54 @@
 import './styles/main.scss'
 
-import React from 'react';
-import ReactDom from 'react-dom';
-import superagent from 'superagent';
-
-const API_URL = 'http://www.reddit.com/r';
-//pulled from the long form web address
-//${searchFormBoard}.json?limit=${searchFormLimit}'
-class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      limit: 10,
-      board: '',
-
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('__FORM_PROPS__', this.props);
-    console.log('__FORM_STATE__', this.state);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.searchSubReddit(this.state.board, this.state.limit);
-  }
-
-  handleBoardChange(e) {
-    this.state({board: e.target.value});
-  }
-
-  handleLimitChange(e){
-
-  }
-
-
+import React from 'react'
+import ReactDom from 'react-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
+import AboutContainer from './component/about-container'
+import DashboardContainer from './component/dashboard-container'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      topics: []
-    };
-
+      expenses: [],
+      budget: 400,
+    }
+    this.getApp = this.getApp.bind(this)
   }
 
   componentDidUpdate() {
-    console.log('__STATE__', this.state);
+    console.log('__STATE__', this.state)
   }
 
-  componentDidMount() {
-
+  getApp() {
+    return {
+      state: this.state,
+      setState: this.setState.bind(this),
+    }
   }
-
 
   render() {
     return (
-      <section className="application">
-      <SearchForm searchSubReddit={this.fetchSubReddit}/>
-      <SearchResultList results={this.state.topics}/>
-      </section>
-
+      <div className="application">
+        <header>
+          <nav>
+            <ul>
+              <li><a href="/">home</a></li>
+              <li><a href="/about">about</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main className="main-content">
+          <BrowserRouter>
+            <section>
+              <Route exact path="/" component={() => <DashboardContainer app={this.getApp()}/>}/>
+              <Route exact path="/about" component={AboutContainer}/>
+            </section>
+          </BrowserRouter>
+        </main>
+      </div>
+    )
   }
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'))
