@@ -28,6 +28,7 @@ class NoteCreateForm extends React.Component {
 
   render() {
     return (
+      <div className='note-create'>
       <form onSubmit={this.handleSubmit}>
         <input
           name='title'
@@ -47,6 +48,7 @@ class NoteCreateForm extends React.Component {
 
         <button type='submit'>Add Note</button>
       </form>
+    </div>
     );
   }
 }
