@@ -5,10 +5,7 @@ class NoteCreateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: uuid(),
-      editing: false,
-      completed: false,
-      content: 'woooooo it is a note',
+      content: '',
     };
     //Bind things//
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +20,7 @@ class NoteCreateForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.appStateGet(this.state);
+    this.props.handleNoteMaker(this.state.content);
   }
 
   componentDidUpdate() {
@@ -41,7 +38,7 @@ class NoteCreateForm extends React.Component {
         <input
           type = "text"
           name = "content"
-          placeholder = "here's the note you wrote"
+          placeholder = "Write a note here! YEAH"
           value = {this.state.content}
           onChange = {this.handleChange}/>
 
