@@ -1,9 +1,8 @@
 import './styles/main.scss';
-
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import NoteCreateForm from './component/note-create-form';
+import NoteCreateForm from './component/note-create-form/index.js';
 import uuid from 'uuid/v4';
 
 class App extends React.Component {
@@ -59,6 +58,5 @@ class App extends React.Component {
     );
   }
 }
-
 
 ReactDom.render(<App />, document.getElementById('root'));
