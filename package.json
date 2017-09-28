@@ -1,5 +1,5 @@
 {
-  "name": "22-Reddit",
+  "name": "23-notes",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -21,8 +21,9 @@
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.6",
-    "superagent": "^3.6.0",
+    "uuid": "^3.1.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   }
