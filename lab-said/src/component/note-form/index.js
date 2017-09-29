@@ -14,7 +14,6 @@ class NoteForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    //this.handleSubmitDelete = this.handleSubmitDelete.bind(this);
   }
 
   handleChange(e) {
@@ -27,11 +26,6 @@ class NoteForm extends React.Component {
     e.preventDefault();
     this.props.handleNoteCreate(this.state);
   }
-
-  // handleSubmitDelete(e) {
-  //   e.preventDefault();
-  //   this.props.handleNoteDelete(this.state.note);
-  // }
 
   render() {
     return (
@@ -47,7 +41,6 @@ class NoteForm extends React.Component {
           onChange={this.handleChange}/>
 
         <button type="submit">Add Note</button>
-        {/*<button type="submit">Delete Note</button>*/}
       </form>
     );
   }

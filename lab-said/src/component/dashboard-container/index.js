@@ -2,6 +2,8 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import NoteForm from '../note-form';
 import NoteList from '../note-list';
+import NoteItem from '../note-item';
+//import NoteUpdateFormContainer from '../note-updateform';
 
 class DashboardContainer extends React.Component {
   constructor(props) {

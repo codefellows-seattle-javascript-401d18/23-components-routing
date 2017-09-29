@@ -1,23 +1,26 @@
 import React from 'react';
 
+import  DashboardContainer from '../dashboard-container';
+
+import NoteForm from '../note-form';
+
+import NoteItem from '../note-item';
+
 class NoteList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      noteList: this.props.notes.map(item => <li key={item.id}>{item.title}:</li>),
-    };
-  }
 
   render() {
     return (
-      <div className="note-list">
-        {this.state.noteList.length ?
-          <ul>
-            {this.state.noteList}
-          </ul>
-          :
-          <h2>There are no notes</h2>
-        }
+
+      <div className='note-list'>
+        <ul>
+        {this.props.notes.map((item, i) =>
+         <NoteItem
+           key={i}
+           note={item}
+           noteRemove={this.props.noteRemove}
+           noteUpdate={this.props.noteUpdate}/>
+         )}
+        </ul>
       </div>
     );
   }
