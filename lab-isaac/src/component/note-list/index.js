@@ -1,15 +1,18 @@
 import React from 'react';
+import NoteItem from '../note-item';
 
 class NoteList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
     return(
-      <h3>Here will be the lists!!!</h3>
-    )
+      <ul className="notes-list">
+        <NoteItem app={this.props.app}/>
+      </ul>
+    );
   }
 }
 
-export default NoteList
+export default NoteList;

@@ -1,6 +1,7 @@
 import React from 'react';
-import NoteForm from '../note-form';
+import NoteCreateForm from '../note-form';
 import NoteList from '../note-list';
+import NoteItem from '../note-item';
 
 class DashboardContainer extends React.Component {
   constructor(props) {
@@ -10,11 +11,11 @@ class DashboardContainer extends React.Component {
   render() {
     return (
       <div className="dashboard-container">
-        <NoteForm app={this.props.app}/>
+        <NoteCreateForm app={this.props.app}/>
         <NoteList app={this.props.app}/>
       </div>
-    )
+    );
   }
 }
 
-export default DashboardContainer
+export default DashboardContainer;
