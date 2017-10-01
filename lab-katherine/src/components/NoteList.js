@@ -8,7 +8,6 @@ class NoteList extends React.Component {
     };
   }
   render() {
-    console.log(this.props.content)
     return (
       <div className="note-list">
         {this.state.noteList ?
