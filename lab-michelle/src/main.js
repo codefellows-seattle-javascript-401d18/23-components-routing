@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import DashboardContainer from './component/dashboard-container';
+import Dashboard from './component/dashboard';
 import NoteCreateForm from './component/note-create-form';
 import {BrowserRouter, Route} from 'react-router-dom';
 import uuid from 'uuid/v4';
@@ -20,19 +20,6 @@ class App extends React.Component {
     console.log('__STATE__', this.state);
   }
 
-  noteMaker(string) {
-    let note = {
-      id: uuid(),
-      editing: false,
-      completed: false,
-      content: string,
-    };
-    this.setState(prevState => ({
-      notesArr: [...prevState.notesArr, note],
-    })
-  );
-  }
-
   //A function to pass state to notes//
   appStateGet() {
     return {
@@ -42,7 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    //a function for the Notes doing whatever they do
     return (
       <div className = "application">
         <header>
