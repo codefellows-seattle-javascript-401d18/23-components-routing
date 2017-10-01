@@ -18,4 +18,4 @@ class Dashboard extends React.component {
 }
 
 //Export
-export default Dashboard
+export default Dashboard;
