@@ -30,7 +30,6 @@ class App extends React.Component {
         <div className="container">
           <Switch>
             <Route exact path='/' component={() => <Dashboard app={this.getApp()}/>} />
-            <Route path='/about' component={About} />
             <Route render={function (){
               return <p>Not Found</p>;
             }} />
