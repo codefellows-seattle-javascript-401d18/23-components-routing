@@ -2,7 +2,6 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
-// var Link = require('react-router-dom').Link;
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class Dashboard extends React.Component {
     note.id = uuid();
     this.props.app.setState(prevState => ({
       content: [...prevState.content, note],
-    }));
+    }))
   }
 
   render () {

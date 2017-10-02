@@ -1,15 +1,13 @@
 import React from 'react';
 import uuid from 'uuid/v4';
-// var PropTypes = require('prop-types');
-
 
 class NoteForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: '',
-      // editing: false,
-      // completed: false,
+      editing: false,
+      completed: false,
       content: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -49,9 +47,5 @@ class NoteForm extends React.Component {
     );
   }
 }
-
-// NoteForm.propTypes = {
-//   content: PropTypes.string.isRequired,
-// };
 
 export default NoteForm;
