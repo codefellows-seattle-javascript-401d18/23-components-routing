@@ -17,7 +17,6 @@ class App extends React.Component {
 
   componentDidUpdate() {
     console.log('__STATE__', this.state);
-    console.log('__NOTES__', this.state.noteList);
   }
 
   getApp() {

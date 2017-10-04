@@ -4,7 +4,6 @@ class NoteForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //id:uuid(),
       title: '',
       editing: false,
       completed: false,
