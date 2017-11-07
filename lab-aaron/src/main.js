@@ -1,56 +1,52 @@
-import './styles/main.scss';
+// import './style/main.scss';
+
 import React from 'react';
 import ReactDom from 'react-dom';
 import {BrowserRouter, Route} from 'react-router-dom';
-import NoteCreateForm from './component/note-create-form/index.js';
-import uuid from 'uuid/v4';
+import AboutContainer from './component/about-container';
+import DashboardContainer from './component/dashboard-container';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      notesArr: [],
+      notes: [],
     };
-    this.appStateGet = this.appStateGet.bind(this);
-    this.noteMaker = this.noteMaker.bind(this);
+    this.getApp = this.getApp.bind(this);
+
   }
 
   componentDidUpdate() {
     console.log('__STATE__', this.state);
   }
 
-  noteMaker(string) {
-    let note = {
-      id: uuid(),
-      editing: false,
-      completed: false,
-      content: string,
-    };
-    this.setState(prevState => ({
-      notesArr: [...prevState.notesArr, note],
-    })
-    );
-  }
-
-  appStateGet() {
+  getApp() {
     return {
       state: this.state,
       setState: this.setState.bind(this),
     };
   }
 
+
   render() {
     return (
-      <div className = "application">
+      <div className="application">
         <header>
-          <ul>
-            <li><a href="/">home</a></li>
-          </ul>
+          <nav>
+            <ul>
+              <li><a href="/">home</a></li>
+              <li><a href="/about">about</a></li>
+              <li><a href="/pastNotes">Past Notes</a></li>
+              <li><a href="/newNote">New Note</a></li>
+            </ul>
+          </nav>
         </header>
-        <main className="main">
+        <main className="main-content">
           <BrowserRouter>
             <section>
-              <Route exact path="/" component = {() => <NoteCreateForm handleNoteMaker={this.noteMaker} app={this.appStateGet()} /> }/>
+              <Route exact path="/" component={() => <DashboardContainer app={this.getApp()}/>}/>
+              <Route exact path="/about" component={AboutContainer}/>
             </section>
           </BrowserRouter>
         </main>
